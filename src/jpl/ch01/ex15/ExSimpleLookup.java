@@ -1,3 +1,5 @@
+/*練習1.15*/
+
 package jpl.ch01.ex15;
 
 import java.util.ArrayList;
