@@ -1,52 +1,49 @@
 package jpl.ch01.ex14;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**初代ウォークマン*/
 public class Walkman {
 	private final int id;		//識別番号
-	private Speaker output;//出力モジュール
-	private int data;		//読み取った単位時間の音楽データ
+	private String path = "src/jpl/ch01/ex14/song_data";
+	
+	protected SpeakerInterface output;//出力モジュール
+	private String data;		//読み取った単位時間の音楽データ
 	
 	
 	public Walkman(int id_){
 		id = id_;
 		output = new Speaker();
-		data = 0;
 	}
 	
-	/**出力モジュールの制御*/
-	public void controlOutput(){
+	public void controlWalkman() throws IOException{
+		File file = new File(path);
+		BufferedReader br = new BufferedReader(new FileReader(file));
 		
-		output.controlSpeaker(data);
-	}
-		
-	/**カセットテープの値を読み取る*/
-	public int readData(){
-		/*処理*/
-		return data;
-	}
-	
-	
-	
-	
-	/**idの値を取得する*/
-	public int getId(){
-		return id;
-	}
-	
-	/**音楽データを取得する*/
-	public int getData(){
-		return data;
-	}
-	
-	public void setData(int d){
-		data = d;
+		data = br.readLine();
+		while(data != null){
+			output.controlSpeaker(data);
+			
+			data = br.readLine();
+		}
+		br.close();
 	}
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Walkman w = new Walkman(12345);
-		//処理
+		Walkman w = new Walkman(1234);
+		
+		try {
+			w.controlWalkman();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

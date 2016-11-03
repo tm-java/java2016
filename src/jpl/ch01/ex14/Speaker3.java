@@ -1,23 +1,35 @@
 package jpl.ch01.ex14;
 
-public class Speaker3{
-	private Headset person1;
-	private Headset person2;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Speaker3 extends Speaker2 implements SpeakerInterface{
+	private String mike_data;//マイクから拾ってきた音声データ
 	
-	public Speaker3(){
-		person1 = new Headset();
-		person2 = new Headset();
+	public void controlSpeaker(String data){
+		super.controlSpeaker(data);
+		System.out.println();
+		inputMakeData();
+		System.out.println("	control mike1 : " + mike_data);
+		inputMakeData();
+		System.out.println("	control mike2 : " + mike_data);
+		System.out.println();
 	}
 	
-	public void controlSpeaker(int data){
-		person1.controlSpeaker(data);
-		person2.controlSpeaker(data);
-	}
-	
-	public void contlrolHeadset(int data){
-		person1.imputMakeData();
-		person1.controlHedset(data);
-		person2.setMakeData(md);
-		person2.controlHedset(data);
+	public void inputMakeData(){
+		InputStreamReader is = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(is);
+		
+		System.out.print("	input mike data >> ");
+		String str;
+		try {
+			str = br.readLine();
+			mike_data = str;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }
