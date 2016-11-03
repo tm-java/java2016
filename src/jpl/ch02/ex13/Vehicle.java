@@ -9,7 +9,7 @@ public class Vehicle {
 	private static long nextID = 0;//次の識別番号
 	private static long maxID = 0; //IDの最大値を保存
 	
-	final static int FIVE = 5;
+	public final static int FIVE = 5;
 	
 	public Vehicle(){
 		UpMaxID();	//maxIDの更新
@@ -32,7 +32,7 @@ public class Vehicle {
 	public String toString(){
 		String rtn = "ID : "+ ID; 
 		rtn += ", speed : " + speed;
-		rtn += ", angle :" + angle;
+		rtn += ", angle : " + angle;
 		rtn += ", owner : "+ owner;
 		
 		return rtn;

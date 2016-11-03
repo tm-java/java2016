@@ -36,7 +36,7 @@ public class Vehicle {
 	public String toString(){
 		String rtn = "ID : "+ ID; 
 		rtn += ", speed : " + speed;
-		rtn += ", angle :" + angle;
+		rtn += ", angle : " + angle;
 		rtn += ", owner : "+ owner;
 		
 		return rtn;

@@ -33,7 +33,7 @@ public class Vehicle {
 	public String toString(){
 		String rtn = "ID : "+ ID; 
 		rtn += ", speed : " + speed;
-		rtn += ", angle :" + angle;
+		rtn += ", angle : " + angle;
 		rtn += ", owner : "+ owner;
 		
 		return rtn;
@@ -94,34 +94,23 @@ public class Vehicle {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Vehicle[] vcls = new Vehicle[FIVE];
+		Vehicle v = new Vehicle("0san");
 		
 		//データの格納
-		for(int i=0;i<FIVE;i++){
-			Vehicle v = new Vehicle(i+"san");
-			v.setSpeed(100+i);
-			v.setAngle(10+i);
-	
-			vcls[i] = v;
-		}
+		v.setSpeed(100);
+		v.setAngle(10);
 		
 		//表示
-		for(int i=0;i<FIVE;i++){
-			Vehicle v = vcls[i];
-			System.out.print("ID : " + v.getID());
-			System.out.println(" ["+v.getSpeed() + "km/h, "+v.getAngle()+"Cº, "+v.getOwner()+"]");
-		}
-		
-		System.out.println("maxID : " + Vehicle.getMaxID());
-		
+		System.out.print("ID : " + v.getID());
+		System.out.println(" ["+v.getSpeed() + "km/h, "+v.getAngle()+"Cº, "+v.getOwner()+"]");
 		
 		//スピードを変更
-		System.out.println("vcls[0] speed change");
-		vcls[0].changeSpeed(vcls[0].getSpeed()*2);
-		System.out.println(vcls[0].toString());
-		System.out.println("vcls[1] stop");
-		vcls[1].stop();
-		System.out.println(vcls[1].toString());
+		System.out.println("v speed change");
+		v.changeSpeed(v.getSpeed()*2);
+		System.out.println(v.toString());
+		System.out.println("v stop");
+		v.stop();
+		System.out.println(v.toString());
 		
 		
 
