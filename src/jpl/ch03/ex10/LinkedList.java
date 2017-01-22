@@ -59,7 +59,9 @@ public class LinkedList implements Cloneable{
 	}
 	
 	public LinkedList clone(){
-		LinkedList rtn = new LinkedList();
+		/*LinkedList rtn = new LinkedList();//2017.1.6自分自身をnewしない
+		//このクラスをfinalにするのであればokだけれども、これがサブクラスだとうまくいかない？
+		//基本的に、cloneメソッドの中でnewはしない
 		for(LinkedList l=getNext();l!=null;l=l.getNext()){
 			LinkedList lCln = new LinkedList();
 			lCln.next = rtn.next;
@@ -71,9 +73,25 @@ public class LinkedList implements Cloneable{
 		for(;l!=null;l=l.getNext(),lcln=lcln.getNext()){
 			lcln.data = l.data; 
 		}
+		return rtn;
+		*/
+		
+		//以下のコードは、練習問題としてはokだけど、製品としては制限かけなければならない
+		//再帰はstackOverFlowが発生する可能性がある
+		//スタックは、全部で1M、thread毎に1つのスタックだから、すぐ行ってしまう。面倒でも、forループで書くこと
+		LinkedList rtn;
+		try {
+			rtn = (LinkedList) super.clone();
+			if(next != null){
+				rtn.next = (LinkedList) next.clone();
+			}
+			return rtn;
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return null;
 		
 
-		return rtn;
 	}
 	
 	public static void main(String[] args) {

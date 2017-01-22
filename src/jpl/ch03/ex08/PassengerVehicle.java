@@ -2,6 +2,7 @@ package jpl.ch03.ex08;
 
 import jpl.ch02.ex18.Vehicle;
 
+//2017.1.6 VhiecleはもうClonableなので、clonableを実現する必要がない
 public class PassengerVehicle extends Vehicle implements Cloneable {
 	private int sheets;		//0以上
 	private int passengers; //0~sheets

@@ -16,7 +16,8 @@ public class Vehicle {
 	private EnergySource gasTank;
 	private EnergySource battery;
 	
-	
+	//2017.1.6
+	//バッテリーは、コンストラクタでエナジーソースをもらうのでは？
 	public Vehicle(){
 		UpMaxID();	//maxIDの更新
 		ID = nextID++;

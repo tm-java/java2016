@@ -1,5 +1,7 @@
 package jpl.ch03.ex12;
 
+//2017.1.6これは、なんか違う。前のCompareCntとかのやつを実装をしなきゃいけない
+
 public class SortHarness {
 	static <T extends Comparable<T>> T[] sort(T[] list){
 		

@@ -22,7 +22,7 @@ public abstract class SortDouble {
 	}
 	
 	/**拡張したクラスが要素を調べるため*/
-	protected final double proe(int i){
+	protected final double probe(int i){
 		curMetrics.probeCnt++;
 		return values[i];
 	}

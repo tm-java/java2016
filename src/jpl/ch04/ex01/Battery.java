@@ -14,10 +14,12 @@ public class Battery implements EnergySource {
 	}
 	
 	/**バッテリーが空かどうか判定する*/
+	//2017.1.6一行で書いて欲しい
 	@Override
 	public boolean empty() {
-		if(battery > 0) return false;
-		return true;
+		return battery <=0;
+		//if(battery > 0) return false;
+		//return true;
 	}
 	
 	/**セッター*/

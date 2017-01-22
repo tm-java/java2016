@@ -27,7 +27,8 @@ public class Garage implements Cloneable {
 
 	public Garage clone() throws CloneNotSupportedException {
 		Garage rtn = (Garage) super.clone();
-		rtn.vehicles = new Vehicle[size];
+		rtn.vehicles = vehicles.clone();//2017.1.6 newしなくても、cloneすればok
+		//rtn.vehicles = new Vehicle[size];
 		for(int i=0;i<size;i++){
 			rtn.vehicles[i] = vehicles[i].clone();
 		}
