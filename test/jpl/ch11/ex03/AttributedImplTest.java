@@ -11,18 +11,18 @@ public class AttributedImplTest {
 	@Test
 	public void test() {
 		//main
-				String[] expected = new String[] {
-					"a = \'aa\'",
-					"b = \'1\'",
-				};
+		String[] expected = new String[] {
+			"a = \'aa\'",
+			"b = \'1\'",
+		};
 
-				StdoutCapture sc = new StdoutCapture();
-				sc.start();
-				
-				AttributedImpl.main(new String[0]);
-				
-				sc.stop();
-				sc.assertEquals(expected);
+		StdoutCapture sc = new StdoutCapture();
+		sc.start();
+		
+		AttributedImpl.main(new String[0]);
+		
+		sc.stop();
+		sc.assertEquals(expected);
 	}
 
 }
