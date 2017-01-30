@@ -1,3 +1,11 @@
+/**
+ * findメソッドがnullではなくExceptionを投げた方がいい理由
+ * 	受け取ったLinkedListがnullではないと保障されているため、nullチェックを行う必要がなくなる
+ * 
+ * 追加するとしたら
+ * 　E data
+ * */
+
 package jpl.ch12.ex01;
 
 public class LinkedList<E> {
