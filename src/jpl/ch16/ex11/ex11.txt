@@ -1,0 +1,12 @@
+answer = 8 , WeakPlayer's score : 8
+answer = 20 , WeakPlayer's score : 20
+answer = 17 , WeakPlayer's score : 17
+answer = 6 , WeakPlayer's score : 6
+answer = 20 , WeakPlayer's score : 20
+
+answer = 1 , BinarySearchTreePlayer's score : 4
+answer = 8 , BinarySearchTreePlayer's score : 4
+answer = 9 , BinarySearchTreePlayer's score : 5
+answer = 8 , BinarySearchTreePlayer's score : 4
+answer = 16 , BinarySearchTreePlayer's score : 4
+
