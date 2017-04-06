@@ -23,5 +23,34 @@ public class InsertCommaTest {
 		
 		assertEquals(expected,actual);
 	}
+	
+	@Test
+	public void test3() {
+		String testStr = "123";
+		String expected = "123";
+		String actual = InsertComma.insertComma(testStr);
+		
+		assertEquals(expected,actual);
+	}
+	
+	@Test
+	public void test4() {
+		String testStr = "123456";
+		String expected = "123,456";
+		String actual = InsertComma.insertComma(testStr);
+		
+		assertEquals(expected,actual);
+	}
+	
+	@Test
+	public void test5() {
+		String testStr = "";
+		String expected = "";
+		String actual = InsertComma.insertComma(testStr);
+		
+		assertEquals(expected,actual);
+	}
+	
+	
 
 }

@@ -1,0 +1,29 @@
+size : 1000
+make a lot of Object
+free memory is 98960152
+do unreachable
+do gc
+free memory is 127969160
+
+size : 2000
+make a lot of Object
+free memory is 59261616
+do unreachable
+do gc
+free memory is 164004304
+
+size : 2500
+make a lot of Object
+free memory is 151854920
+do unreachable
+do gc
+free memory is 348300016
+
+
+size : 3000
+make a lot of Object
+free memory is 244640920
+do unreachable
+do gc
+free memory is 502418400
+

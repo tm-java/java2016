@@ -1,5 +1,8 @@
 package jpl.ch07.ex01;
 
+
+// 2/2 間違い。hello worldのみをユニコードとするのではなくて、
+//このコード全体をユニコードを使って書きなさいってこと。
 public class UnicodePractice {
 
 	public static void main(String[] args) {

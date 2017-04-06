@@ -1,6 +1,23 @@
 //HistoryオブジェクトはBankAccountに関連づいているので、ネストしたクラスになるべき
 //各口座に対して履歴を保持するので、staticにすべきではない
 
+/**
+ * 2/2メモ
+ * BandAccount ba = new BankAccount)0
+ * ba.deposit();
+ * History h1 = ba.history();
+ * ba.deposit();
+ * History h2 = ba.history();
+ * for(Action a = h1.next(); a!=null; a++){
+ * 	Sysout(a);
+ * }
+ * ってするとどうなる？h1は、一回目のdepositだけ観れるべきなのに、２個入っている。
+ * また、そのあとで、h2でループを回した時、２こちゃんと表示されない。（nextをnullまでもう走らせてしまっている）
+ * 理由：同じ参照を返してしまっているだけだから。
+ * historyメソッドはコピーして返す。
+ * で、その時Clonnableを実現してもいいんだけど、プライベートなコピーコンストラクタを用意すればいい。
+ */
+
 package jpl.ch05.ex02;
 
 import java.util.LinkedList;
@@ -20,10 +37,10 @@ public class BankAccount {
 		lastTenAct.add(lastAct);
 	}
 	
-	public class Action{
+	public class Action {
 		private String act;
 		private long amount;
-		Action(String act, long amount){
+		Action(String act, long amount) {
 			this.act = act;
 			this.amount = amount;
 		}
@@ -36,22 +53,38 @@ public class BankAccount {
 	public class History{
 		private List<Action> actions;
 		private final int MAX = 10;
+		private int point = 0;
 		
 		public History(){
 			actions = new LinkedList<Action>();
 		}
-		/**Actionオブジェクトを１つ返して、リストの最後では、nullを返す?*/
-		public Action next(){
-			return null;
+		
+		/**
+		 * コピーコンストラクタ2/2
+		 */
+		private History(History other) {
+			actions = new LinkedList<Action>(other.actions);
 		}
-		public void add(Action newAct){
-			if(actions.size()==MAX) {
+		
+		/**
+		 * 2/2 書いたは書いたけど、未定義
+		 * @return
+		 */
+		public Action next(){
+			if (point >= actions.size()) {
+				return null;
+			}
+			return actions.get(point++);
+		}
+		
+		public void add(Action newAct) {
+			if (actions.size() == MAX) {
 				actions.remove(0);
 			}
 			actions.add(newAct);
 		}
 		
-		public String toString(){
+		public String toString() {
 			String rtn = "";
 			for(int i=0;i<actions.size();i++){
 				rtn += actions.get(i).toString();
@@ -82,8 +115,9 @@ public class BankAccount {
 		other.lastTenAct.add(lastAct);
 	}
 	
+	// 2/2変更
 	public History history(){
-		return lastTenAct;
+		return new History(lastTenAct);
 	}
 	
 	public long getBalance(){
@@ -119,6 +153,8 @@ public class BankAccount {
 		System.out.println(user2.history());
 		System.out.println("*********user2 balance*********");
 		System.out.println("balance : "+user2.getBalance());
+		
+		
 		
 		
 		

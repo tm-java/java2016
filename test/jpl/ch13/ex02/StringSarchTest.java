@@ -12,6 +12,7 @@ public class StringSarchTest {
 		assertEquals(2,StringSarch.countSubString("abceabc", "abc"));
 		assertEquals(3,StringSarch.countSubString("aaaa", "aa"));
 		assertEquals(0,StringSarch.countSubString("abc", "bcd"));
+		//2017.3.3 空文字列の時の
 	}
 
 }

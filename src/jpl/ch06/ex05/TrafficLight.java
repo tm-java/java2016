@@ -9,11 +9,9 @@ public enum TrafficLight {
 	YELLOW {
 		public Color getColor(){return Color.YELLOW;}
 	},
-	GREEN{
+	GREEN {
 		public Color getColor(){return Color.GREEN;}
 	};
 		
 	abstract public Color getColor();
-	
-
 }

@@ -45,6 +45,12 @@ public class DigitalClock extends Frame {
 	private DateFormat format;
 	private String clockTime = "00:00:00";
 
+	// ウィンドウの座標
+	private int windowX;
+	private int windowY;
+	private final static String P000526874_WINDOWX = "p000526874_windowX";
+	private final static String P000526874_WINDOWY = "p000526874_windowY";
+
 	// main
 	public static void main(String[] args) {
 		new DigitalClock();
@@ -54,10 +60,11 @@ public class DigitalClock extends Frame {
 	DigitalClock() throws HeadlessException {
 		prefs = Preferences.userNodeForPackage(this.getClass());
 		load();
-		
+
 		// ウィンドウの設定
 		this.setSize(p.getFontSize() * 10, p.getFontSize() * 3);
 		this.setBackground(p.getBackColor());
+		this.setLocation(windowX, windowY);
 
 		// ダイアログ
 		SettingDialog settingDialog = new SettingDialog();
@@ -177,6 +184,8 @@ public class DigitalClock extends Frame {
 		prefs.put(p.P000526874_FONTSIZE, String.valueOf(p.getFontSizeIndex()));
 		prefs.put(p.P000526874_BACKCOLOR, String.valueOf(p.getBackColorIndex()));
 		prefs.put(p.P000526874_CLOCKCOLOR, String.valueOf(p.getClockColorIndex()));
+		prefs.put(P000526874_WINDOWX, String.valueOf(this.getX()));
+		prefs.put(P000526874_WINDOWY, String.valueOf(this.getY()));
 		try {
 			prefs.flush();
 		} catch (BackingStoreException e) {
@@ -189,5 +198,7 @@ public class DigitalClock extends Frame {
 		p.setFontIndex(Integer.parseInt(prefs.get(p.P000526874_FONT, "0")));
 		p.setBackColorIndex(Integer.parseInt(prefs.get(p.P000526874_BACKCOLOR, "0")));
 		p.setClockColorIndex(Integer.parseInt(prefs.get(p.P000526874_CLOCKCOLOR, "1")));
+		windowX = Integer.parseInt(prefs.get(P000526874_WINDOWX, "0"));
+		windowY = Integer.parseInt(prefs.get(P000526874_WINDOWY, "0"));
 	}
 }

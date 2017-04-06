@@ -9,3 +9,14 @@ public interface Attributed<E> {
 	java.util.Iterator<Attr<E>> attrs();
 
 }
+
+/*
+ * public interface Attributed {
+	void add (Attr<Object> newAttr);
+	Attr find (String attrName);
+	Attr remove(String attrName);
+	java.util.Iterator<Attr> attrs();
+}
+
+こういう風にしてもいい
+ */
