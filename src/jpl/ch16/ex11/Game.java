@@ -1,5 +1,16 @@
 package jpl.ch16.ex11;
-
+/*
+ * 2017.4.7 メモ
+ * 
+ * java Game BinarySearchTreePlayer
+ * とすると、BinarySearchTreePlayerのクラスを通常のクラスローダーが見つけられなくて、自分で実装したloadClassが呼ばれる
+ * 
+ * ただし
+ * java Game jpl.ch16.ex12.BinarySearchTreePlayer
+ * としても、実は実行される！！
+ * これは、クラスローダーの２番目の親クラスローダーから見つけるから、実行できる。
+ * この時の、自分で作ったloadClassは実行されていない
+ */
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;

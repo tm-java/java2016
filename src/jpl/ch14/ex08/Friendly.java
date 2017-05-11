@@ -1,5 +1,24 @@
 package jpl.ch14.ex08;
 
+/**
+ * 複数のロックを待つときは、とる順番を固定する
+ * ＝　リソースの順序づけ
+ * 複数のスレッドが同じ順番でロックを取得しないといけない
+ * 
+ * if (this.hashCode < partner.hashCode) {
+ * 		synchronized(this) {
+ * 			synchronized(partner) {
+ * 			}
+ * 		}
+ * } else {
+ *		synchronized(partner) {
+ * 			synchronized(this) {
+ * 			}
+ * 		}
+ * }
+ * @author matsuitomomi
+ *
+ */
 public class Friendly {
 	private Friendly partner;
 	private String name;

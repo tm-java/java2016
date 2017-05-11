@@ -72,21 +72,23 @@ public class Objects {
 	}
 
 	/**
-	 * 引数のタイプに該当する作成済みオブジェクトのリストを返す TODO できれば、代入可能なオブジェクトも返してあげたい
+	 * 引数のタイプに該当する作成済みオブジェクトのリストを返す
 	 */
 	public Vector matchObjects(Type type) {
 		Vector rtn = new Vector();
 		for (Object o : objects) {
-			if (o.getClass() == type) {
+			Class oclass = o.getClass();
+			if (oclass == type || oclass.getGenericSuperclass() == type) {
 				rtn.add(o);
 			}
 		}
 
 		for (Object ary : arrays) {
-			if (ary.getClass().getComponentType() == type) {
+			Class aryclass = ary.getClass().getComponentType();
+			if (aryclass == type || aryclass.getGenericSuperclass() == type) {
 				for (int i = 0; i < Array.getLength(ary); i++) {
-					Object obj = Array.get(ary,i);
-					if(rtn.contains(obj)) {
+					Object obj = Array.get(ary, i);
+					if (rtn.contains(obj)) {
 						continue;
 					}
 					rtn.add(obj);

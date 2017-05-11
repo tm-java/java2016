@@ -36,6 +36,10 @@ public class ShowTime {
 		
 		Runnable secondCount = new Runnable() {
 			public void run() {
+				//2017.4.7メモ
+				//oneSecondの内容がこっちにあった方がいい。
+				//このスレッドが表示、かつ通知する。
+				//また、ctの中で時間のカウントを持っているのが微妙。
 				ct.oneSecond();
 			}
 		};

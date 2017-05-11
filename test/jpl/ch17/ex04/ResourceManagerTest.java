@@ -1,4 +1,4 @@
-package jpl.ch17.ex03;
+package jpl.ch17.ex04;
 
 import static org.junit.Assert.*;
 
