@@ -121,7 +121,7 @@ public class MainPanel extends JPanel {
 				// 右クリックで、それが配列オブジェクトの時のみ、ポップアップメニュー表示
 				if (btn == MouseEvent.BUTTON3) {
 					Object selected = objList.getSelectedValue();
-					if (selected.getClass().isArray()) {
+					if (selected != null && selected.getClass().isArray()) {
 						if (pm != null) {
 							MainPanel.this.remove(pm);
 						}
