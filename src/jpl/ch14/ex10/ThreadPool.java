@@ -52,8 +52,7 @@ public class ThreadPool {
 						e.printStackTrace();
 					}
 					removed.run();
-					
-					
+
 				}
 			}
 		};
@@ -71,11 +70,13 @@ public class ThreadPool {
 	 *             if threads has been already started.
 	 */
 	public void start() {
-		if (pool[0].isAlive()) {
-			throw new IllegalStateException();
-		}
-		for (Thread th : pool) {
-			th.start();
+		synchronized (pool) {
+			if (pool[0].isAlive()) {
+				throw new IllegalStateException();
+			}
+			for (Thread th : pool) {
+				th.start();
+			}
 		}
 	}
 
@@ -86,23 +87,25 @@ public class ThreadPool {
 	 *             if threads has not been started.
 	 */
 	public void stop() {
-		if (!pool[0].isAlive()) {
-			throw new IllegalStateException();
-		}
-		synchronized (queue) {
-			for (int i = 0; i < pool.length; i++) {
-				queue.add(null);		
+		synchronized (pool) {
+			if (!pool[0].isAlive()) {
+				throw new IllegalStateException();
 			}
-			
-			queue.notifyAll();
-		}
-		
-		for (int i=0;i<pool.length;i++) {
-			try {
-				pool[i].join();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			synchronized (queue) {
+				for (int i = 0; i < pool.length; i++) {
+					queue.add(null);
+				}
+
+				queue.notifyAll();
+			}
+
+			for (int i = 0; i < pool.length; i++) {
+				try {
+					pool[i].join();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -124,7 +127,7 @@ public class ThreadPool {
 		if (runnable == null) {
 			throw new NullPointerException();
 		}
-		if (!pool[0].isAlive()) {		///一番目だけスレッドが終了する場合があるなら使用しない方がいいかも
+		if (!pool[0].isAlive()) { /// 一番目だけスレッドが終了する場合があるなら使用しない方がいいかも
 			throw new IllegalStateException();
 		}
 		synchronized (queue) {
