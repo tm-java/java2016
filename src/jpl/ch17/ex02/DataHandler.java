@@ -38,6 +38,8 @@ public class DataHandler {
 		fis.close();
 		b = bas.toByteArray();
 		return b;
+		//return Files.readAllBytes(file.toPath);
+
 	}
 
 }

@@ -35,6 +35,7 @@ public final class ResourceManager {
 	public synchronized void shutdown() {
 		if (!shutdown) {
 			// 到達不可能なリソースの解放
+			//0512本来はここで、全部解放されるまで待つ
 			this.releaseResource();
 			
 			if (refs.isEmpty()) {			

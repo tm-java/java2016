@@ -14,6 +14,7 @@ public class TranslateByte extends FilterInputStream{
 		this.to = to;
 	}
 	
+	//バッファーつきのreadメソッドが足りない
 	public int read() throws IOException{
 		int c = super.read();
 		if (c == -1) {
