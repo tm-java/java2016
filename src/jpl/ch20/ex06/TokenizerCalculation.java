@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TokenizerCalculation {
-	Map<String, Double> table = new HashMap<String, Double>();
+	private final Map<String, Double> table = new HashMap<String, Double>();
 
 	enum Operation {
 		EQUAL{

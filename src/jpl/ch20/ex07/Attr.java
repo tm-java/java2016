@@ -1,5 +1,11 @@
 package jpl.ch20.ex07;
 
+/*
+ * valueがシリアライズできた時だけ、read/writeする。
+ * できなかったらUnsupportedException投げてもいい
+ * ByteArrayOutputStream作って、ObjectStreamからもらったものをシリアライズできるか確認する
+ * ByteArrayでバイト配列に変換して、Dataストリームに投げる
+ */
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

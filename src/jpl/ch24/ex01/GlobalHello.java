@@ -1,6 +1,7 @@
 package jpl.ch24.ex01;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -10,15 +11,8 @@ import java.util.ResourceBundle;
 
 public class GlobalHello {
 	public static void main(String[] args) {
-		File dir = Paths.get("/src/jpl/ch24/ex01").toFile();
-		URLClassLoader urlLoader = null;
-		try {
-			urlLoader = new URLClassLoader(new URL[]{dir.toURI().toURL()});
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
 		
-		ResourceBundle res = ResourceBundle.getBundle("GlobalRes", Locale.ENGLISH, urlLoader);
+		ResourceBundle res = ResourceBundle.getBundle("jpl.ch24.ex01.GlobalRes");
 		String msg;
 		if (args.length > 0) {
 			msg = res.getString(GlobalRes.GOODBYE);
@@ -26,7 +20,6 @@ public class GlobalHello {
 			msg = res.getString(GlobalRes.HELLO);
 		}
 		System.out.println(msg);
-		
 	}
 
 }

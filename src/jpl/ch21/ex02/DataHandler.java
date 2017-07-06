@@ -1,29 +1,34 @@
 package jpl.ch21.ex02;
 
+/*
+ * 元のデータホルダーは、byte[]を弱い参照にしているので、weakhashmapの使い方が違う。
+ */
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.Set;
 import java.util.WeakHashMap;
 
 public class DataHandler {
-	private WeakHashMap<File, byte[]> lastFileMap;
+	private File lastFile;
+	private Map<byte[], Object> lastData = new WeakHashMap<>();
 
 	byte[] readFile(File file) throws IOException {
 		byte[] data;
 
-		if (lastFileMap != null && lastFileMap.containsKey(file)) {
-			data = lastFileMap.get(file);
-			if (data != null) {
-				return data;
+		if (file.equals(lastFile)) {
+			for (byte[] b : lastData.keySet()) {
+				return b;
 			}
 		}
 
 		data = readBytesFromFile(file);
-		lastFileMap = new WeakHashMap<File, byte[]>();
-		lastFileMap.put(file, data);
+		lastData.clear();
+		lastData.put(data, null);
 		return data;
 	}
 

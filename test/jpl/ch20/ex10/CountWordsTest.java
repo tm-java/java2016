@@ -27,7 +27,7 @@ public class CountWordsTest {
 		expected.put("you", 1);
 		expected.put("are", 1);
 		
-		HashMap<String, Integer> actual = CountWords.countWords(reader);
+		HashMap<String, Integer> actual = (HashMap<String, Integer>) CountWords.countWords(reader);
 		assertEquals(expected.size(), actual.size());
 		for (Map.Entry<String, Integer> entry : expected.entrySet()) {
 			assertTrue(actual.containsKey(entry.getKey()));

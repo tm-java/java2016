@@ -1,0 +1,34 @@
+(1)
+public static void reverse(List<?> list)を
+Listインターフェースのdefaultメソッドに
+default void reverse()
+
+(2)
+public static <T> int binarySearch(List<? extends T> list, T key, Comparator<? super T> c)を
+Listインターフェースのstaticメソッドに
+static <T> int binarySearch(List<? extends T> list, T key, Comparator<? super T> c)
+
+(3)
+public static void swap(List<?> list, int i, int j)を
+Listインターフェースのdefaultメソッドに
+default void swap(int i, int j)
+
+(4)
+public static <T> void fill(List<? super T> list, T obj)を
+Listインターフェースのdefaultメソッドに
+default void fill(T obj)
+
+(5)
+public static <T> void copy(List<? super T> dest, List<? extends T> src)を
+Listインターフェースのstaticメソッドに
+public static <T> void copy(List<? super T> dest, List<? extends T> src) 
+
+(6)
+public static void rotate(List<?> list, int distance)を
+Listインターフェースのdefaultメソッドに
+default void rotate(int distance)
+
+(7)
+public static <T> boolean replaceAll(List<T> list, T oldVal, T newVal)を
+Listインターフェースのdefaultメソッドに
+default <T> boolean replaceAll(T oldVal, T newVal)

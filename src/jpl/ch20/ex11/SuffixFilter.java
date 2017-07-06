@@ -14,6 +14,7 @@ public class SuffixFilter implements FilenameFilter {
 	@Override
 	public boolean accept(File dir, String name) {
 		return suffix.equals(name.substring(name.length()-suffix.length(), name.length()));
+		//return name.endsWith(duffix);でok
 	}
 	
 	public static void main(String[] args) {

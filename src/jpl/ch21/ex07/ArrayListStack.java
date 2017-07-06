@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-public class ArrayListStack<E> {
+public final class ArrayListStack<E> {
 	private final List<E> fifo;
 
 	public ArrayListStack() {

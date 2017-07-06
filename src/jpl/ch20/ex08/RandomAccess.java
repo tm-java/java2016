@@ -28,6 +28,7 @@ public class RandomAccess {
 
 		while (s != null) {
 			if (s.substring(0, 2).equals("%%")) {
+				//s.startsWith("%%");を使えばいい20170602メモ
 				list.add((int) fas.getFilePointer());
 			}
 			s = fas.readLine();
@@ -61,6 +62,7 @@ public class RandomAccess {
 				int count = (int) raf.length();
 				if (num < (list.size() - 1)) {
 					count = list.get(num + 1) - list.get(num) - 3;// %%改行分引く
+					//windowsだと改行分は2バイトだからきちんと動かないよ 20170602
 				} else {
 					count -= list.get(num);
 				}

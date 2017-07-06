@@ -4,11 +4,12 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StreamTokenizer;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CountWords {
-	public static HashMap<String, Integer> countWords(Reader source) throws IOException {
+	public static Map<String, Integer> countWords(Reader source) throws IOException {
 		StreamTokenizer in = new StreamTokenizer(source);
-		HashMap<String, Integer> rtn = new HashMap<String, Integer>();
+		Map<String, Integer> rtn = new HashMap<String, Integer>();
 		String key;
 		while (in.nextToken() != StreamTokenizer.TT_EOF) {
 			if (in.ttype == StreamTokenizer.TT_WORD) {
