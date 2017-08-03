@@ -9,7 +9,7 @@ public class WitchCharsTest {
 	@Test
 	public void test() {
 		String test = "Testing 1 2 3";
-		String expected = "[ 12s3Ttegin]";
+		String expected = "[ 123Teginst]";
 
 		WitchChars wc = new WitchChars(test);			
 		String actual = wc.toString();

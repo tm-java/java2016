@@ -15,9 +15,10 @@ public class CSVScanner {
 
 		StringBuilder s = new StringBuilder("^");
 		for (int i = 0; i < n; i++) {
-			s.append("([^,]+),");
+			s.append("([^,]*?),");//＋ではなくて、０以上で
 		}
 		s.deleteCharAt(s.length() - 1);
+		s.append("$");
 		String exp = s.toString();
 
 		Pattern pat = Pattern.compile(exp, Pattern.MULTILINE);

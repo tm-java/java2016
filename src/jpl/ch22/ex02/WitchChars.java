@@ -2,9 +2,10 @@ package jpl.ch22.ex02;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class WitchChars {
-	private HashMap<Character, Boolean> used = new HashMap<Character, Boolean>();
+	private Map<Character, Boolean> used = new TreeMap<Character, Boolean>();
 
 	public WitchChars(String str) {
 		for (int i = 0; i < str.length(); i++) {

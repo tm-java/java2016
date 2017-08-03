@@ -1,0 +1,27 @@
+1.javax.xml.stream.EventFilter
+https://docs.oracle.com/javase/jp/6/api/javax/xml/stream/EventFilter.html
+XMLEventReaders をフィルタする
+
+2.java.io.FileFilter
+https://docs.oracle.com/javase/jp/6/api/java/io/FileFilter.html
+このインタフェースのインスタンスは、File クラスの listFiles(FileFilter) メソッドに渡すことができる
+
+3.java.io.FilenameFilter
+https://docs.oracle.com/javase/jp/6/api/java/io/FilenameFilter.html
+指定されたファイルをファイルリストに含めるかどうかをテストする
+
+4.java.util.logging.Filter
+https://docs.oracle.com/javase/jp/6/api/java/util/logging/Filter.html
+指定されたログレコードが通知されるかどうかを調べる
+
+5.javax.management.NotificationFilter
+https://docs.oracle.com/javase/jp/6/api/javax/management/NotificationFilter.html
+リスナーへの特定の通知の送信前に呼び出される
+
+6.java.nio.file.DirectoryStream.Filter<T>
+https://docs.oracle.com/javase/jp/8/docs/api/java/nio/file/DirectoryStream.Filter.html
+指定されたディレクトリ・エントリを受け入れるべきかフィルタするべきかを決定する
+
+7.javax.imageio.spi.ServiceRegistry.Filter
+https://docs.oracle.com/javase/jp/8/docs/api/javax/imageio/spi/ServiceRegistry.Filter.html
+指定されたtrueオブジェクトがこのproviderで定義される基準に一致する場合はFilterを返す

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
+//ただ、最長と、最短を比較する
+//ベンチマークなので４カラム固定のデータでいい
+//
 public class CSVScanner {
 	class Bench1 extends Benchmark {
 		Scanner in;

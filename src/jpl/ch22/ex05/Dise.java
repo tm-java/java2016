@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
 
+//理論値分布を計算して表示
 public class Dise {
 	public static long play(int n) {
 		long sum = 0;

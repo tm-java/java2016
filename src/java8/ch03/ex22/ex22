@@ -1,0 +1,1 @@
+CompletableFutureに対するflatMap操作は、thenApplyAsyncにあたる。

@@ -1,0 +1,4 @@
+<U> U reduce(U identity, BiFunction<U, ? super T, U> accumulator, BinaryOperator<U> combiner)
+は、BiFunctionへの最初の型引数Uを? super Uと宣言すべきか？
+
+宣言すべきでない。戻り値がUなので、? super Uにすると、縮小変換になり、キャストの保証ができない。
