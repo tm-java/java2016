@@ -32,3 +32,7 @@ default void rotate(int distance)
 public static <T> boolean replaceAll(List<T> list, T oldVal, T newVal)を
 Listインターフェースのdefaultメソッドに
 default <T> boolean replaceAll(T oldVal, T newVal)
+
+
+だいたい違う、まず、Collectionクラスに入れたい。
+nCopiesとかは、staticメソッドにする

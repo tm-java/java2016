@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class MyFileFilter2 {
 	
 	public static void showFiles(File file, String name) {
-		File[] lists = file.listFiles((f,n) -> n.endsWith(name));
+		String[] lists = file.list((f,n) -> n.endsWith(name));
 		System.out.println(Arrays.toString(lists));
 	}
 

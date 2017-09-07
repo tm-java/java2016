@@ -1,1 +1,21 @@
 わかりません
+
+
+public class Test<E> extends ArrayList<E> {
+	//1.7の時点で、Stream<T>を返すメソッドなんてかけるはずがないので、void
+	//1.8でのコンパイラだとシグネチャが一緒なのでコンパイルエラーになってしまう
+	//コンパイルすると、戻り値まで含めたシグネチャの管理に変わるので、1.7でコンパイルしたコードが1.8でも動かすことができる。
+	public void stream() {
+		System.ou.println("Java1.7");
+	}
+}
+
+これを1.7でコンパイルして、1.8環境で実行した時は実行できるか？
+できる。ちゃんとjava 1.7と表示される。
+コンパイルされているからどのメソッドを呼ぶかはもう決定している。
+
+互換性
+Source Compatibility コンパイルできなくなる
+Binary Compatibility　ソースコードが実行できなくなる
+Function Compatibility　機能が動かなくなる
+

@@ -15,7 +15,7 @@ public class MyFileFilter2Test {
 		File file = new File("src/jpl/ch24/ex01");
 		String name = "properties";//キャプチャされる変数
 		String[] expected = new String[] {
-				"[src/jpl/ch24/ex01/GlobalRes_en_AU.properties]"
+				"[GlobalRes_en_AU.properties]"
 		};
 		StdoutCapture sc = new StdoutCapture();
 		sc.start();

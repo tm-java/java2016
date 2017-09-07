@@ -12,6 +12,7 @@ import java.util.stream.Stream;
  * @author matsuitomomi
  *
  */
+//アウトオブメモリーエラーだとしても、それが無限ストリームであるとは限らない
 public class Finite {
 	/**
 	 * 与えられたStreamが、有限か否かを返す

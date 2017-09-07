@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 public class RandomLongTest {
-
+	//乱数のテストは、100万個くらい作って、数値を分割して均等に数値が出てきたら、乱数になっていると判断できる
 	@Test
 	public void test1() {
 		Long[] expected = {0L, 0L, 0L};

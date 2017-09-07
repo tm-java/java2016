@@ -10,7 +10,7 @@ import org.junit.Test;
 import jp.ne.sonet.ca2.yshibata.test.StdoutCapture;
 
 public class FileSortTest {
-	
+	// このテストの方法だと、src/jpl/ch024内のファイルを消したり追加したりするとこのテストが動かなくなる。
 	@Test
 	public void test() {
 		File[] files = new File("src/jpl/ch24/ex01").listFiles();

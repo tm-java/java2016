@@ -25,3 +25,6 @@ https://docs.oracle.com/javase/jp/8/docs/api/java/nio/file/DirectoryStream.Filte
 7.javax.imageio.spi.ServiceRegistry.Filter
 https://docs.oracle.com/javase/jp/8/docs/api/javax/imageio/spi/ServiceRegistry.Filter.html
 指定されたtrueオブジェクトがこのproviderで定義される基準に一致する場合はFilterを返す
+
+
+→FileNameFilterだけ引数を２つもっているのでPredicateで置き換えられない

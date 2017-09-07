@@ -6,8 +6,10 @@ import java.util.stream.Stream;
 public class MyStream2 {
 	public static <T> ArrayList<T> toArrayList1(Stream<ArrayList<T>> stream) {
 		return stream.reduce(
+			//元データを改竄しちゃっている。新しいリスト作って返すべき。
 			(list1, list2) -> {list1.addAll(list2); return list1;}
 			).get();
+		//すぐgetしちゃうと、Optionalにエンプティが入った時に例外がスローされてしまう。
 	}
 	
 	public static <T> ArrayList<T> toArrayList2(Stream<ArrayList<T>> stream) {
